@@ -127,6 +127,7 @@ function App() {
       <button onClick={onGetUser}>Get User</button> */}
       <Table columns={column} dataSource={[]} bordered />
       <img src="https://t3.ftcdn.net/jpg/05/71/06/76/360_F_571067620_JS5T5TkDtu3gf8Wqm78KoJRF1vobPvo6.jpg" />
+      <p>HELLO PETER</p>
       {/* <button onClick={onGetAdmin}>Get admin</button>
       <button onClick={handleAddAdmin}>Add User</button> */}
     </div>
