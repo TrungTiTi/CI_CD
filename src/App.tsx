@@ -66,7 +66,7 @@ function App() {
       await axios.delete(`http://localhost:3001/user/${id}`);
       onGetUser();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
