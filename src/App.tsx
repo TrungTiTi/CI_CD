@@ -29,9 +29,9 @@ function App() {
       title: "Email",
     },
     {
-      key: "action",
-      dataIndex: "action",
-      title: "Action",
+      key: "actions",
+      dataIndex: "actions",
+      title: "Actions",
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: () => {
         return (
