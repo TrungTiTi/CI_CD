@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { Button, Table } from "antd";
+import { ENV_CONFIG } from "./config";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -63,7 +64,7 @@ function App() {
 
   const handleDelete = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3001/user/${id}`);
+      await axios.delete(`${ENV_CONFIG.VITE_APP_GATEWAY}/user/${id}`);
       onGetUser();
     } catch (error) {
       console.log(error);
@@ -72,8 +73,8 @@ function App() {
 
   const handleAddUser = async () => {
     const url = refEdit.current.isEdit
-      ? `http://localhost:3001/user/${refEdit.current.id}`
-      : "http://localhost:3001/user";
+      ? `${ENV_CONFIG.VITE_APP_GATEWAY}/user/${refEdit.current.id}`
+      : `${ENV_CONFIG.VITE_APP_GATEWAY}/user`;
     await axios
       .post(url, userData)
       .then((res) => res)
@@ -84,7 +85,7 @@ function App() {
 
   const onGetUser = async () => {
     const res = await axios
-      .get("http://localhost:3001/userList")
+      .get(`${ENV_CONFIG.VITE_APP_GATEWAY}/userList`)
       .then((res) => res?.data)
       .catch((err) => console.log(err));
     if (res?.data) {
@@ -94,13 +95,13 @@ function App() {
 
   const onGetAdmin = async () => {
     await axios
-      .get("http://localhost:3001/admin")
+      .get(`${ENV_CONFIG.VITE_APP_GATEWAY}/admin`)
       .then((res) => res?.data)
       .catch((err) => console.log(err));
   };
 
   const handleAddAdmin = async () => {
-    const url = "http://localhost:3001/admin";
+    const url = `${ENV_CONFIG.VITE_APP_GATEWAY}/admin`;
     await axios
       .post(url, { firstName: "test", lastName: "sup", avatar: "no" })
       .then((res) => res)
