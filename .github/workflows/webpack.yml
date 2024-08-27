@@ -26,7 +26,9 @@ jobs:
         run: npm install
 
       - name: Build the project
-        run: npm run build # or use `npx webpack` if that's your build command
+        run: npm run build # or use `npx webpack` if that's your build command\
+        env:
+          VITE_APP_GATEWAY: ${{ secrets.VITE_APP_GATEWAY }}
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
