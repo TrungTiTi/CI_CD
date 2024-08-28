@@ -9,6 +9,7 @@ function App() {
     name: "",
     email: "",
   });
+  console.log("ENV_CONFIG.VITE_APP_GATEWAY", ENV_CONFIG.VITE_APP_GATEWAY);
 
   const [dataSource, setDataSource] = useState([]);
   const refEdit = useRef({ isEdit: false, id: "" });
